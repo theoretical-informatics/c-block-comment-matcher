@@ -67,4 +67,22 @@ class RegexDemoTest {
         // act and assert
         assertTrue(matcher.find());
     }
+
+    @Test
+    void itShouldMatchWhitespaceCharacterContent() {
+        // arrange
+        Matcher matcher = RegexDemo.getCommentMatcherFor("/* Some Text here */");
+
+        // act and assert
+        assertTrue(matcher.find());
+    }
+
+    @Test
+    void itShouldMatchACommentWithAnAsterisk() {
+        // arrange
+        Matcher matcher = RegexDemo.getCommentMatcherFor("/* Some * Comment */");
+
+        // act and assert
+        assertTrue(matcher.find());
+    }
 }
