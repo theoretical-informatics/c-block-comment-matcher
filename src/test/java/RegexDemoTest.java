@@ -58,4 +58,13 @@ class RegexDemoTest {
         // assert
         assertTrue(groupFound);
     }
+
+    @Test
+    void itShouldMatchMoreThanOneCharacterContent() {
+        // arrange
+        Matcher matcher = RegexDemo.getCommentMatcherFor("/*Some*/");
+
+        // act and assert
+        assertTrue(matcher.find());
+    }
 }
