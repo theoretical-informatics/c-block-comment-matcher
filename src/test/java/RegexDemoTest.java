@@ -46,4 +46,16 @@ class RegexDemoTest {
         // assert
         assertTrue(groupFound);
     }
+
+    @Test
+    void itShouldMatchOtherCharacterContentsThanA() {
+        // arrange
+        Matcher matcher = RegexDemo.getCommentMatcherFor("/*b*/");
+
+        // act
+        boolean groupFound = matcher.find();
+
+        // assert
+        assertTrue(groupFound);
+    }
 }
