@@ -85,4 +85,13 @@ class RegexDemoTest {
         // act and assert
         assertTrue(matcher.find());
     }
+
+    @Test
+    void itShouldMatchACommentWithASlash() {
+        // arrange
+        Matcher matcher = RegexDemo.getCommentMatcherFor("/* Some / Comment */");
+
+        // act and assert
+        assertTrue(matcher.find());
+    }
 }
