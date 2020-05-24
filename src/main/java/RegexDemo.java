@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
  */
 public class RegexDemo {
     public static Matcher getCommentMatcherFor(String givenString) {
-        Pattern pattern = Pattern.compile("");
+        Pattern pattern = Pattern.compile("/\\*\\*/");
         return pattern.matcher(givenString);
     }
 }
