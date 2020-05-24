@@ -1,3 +1,4 @@
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.regex.Matcher;
@@ -31,5 +32,18 @@ class RegexDemoTest {
 
         // assert
         assertFalse(groupFound);
+    }
+
+    @Test
+    @DisplayName("it should match a comment with a one character content 'a'")
+    void itShouldMatchACommentWithAOneCharacterContentA() {
+        // arrange
+        Matcher matcher = RegexDemo.getCommentMatcherFor("/*a*/");
+
+        // act
+        boolean groupFound = matcher.find();
+
+        // assert
+        assertTrue(groupFound);
     }
 }
