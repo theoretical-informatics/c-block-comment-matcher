@@ -16,6 +16,20 @@ class RegexDemoTest {
 
         // act
         boolean groupFound = matcher.find();
+
+        // assert
         assertTrue(groupFound);
+    }
+
+    @Test
+    void itShouldNotMatchSomeOtherStringWithoutComment() {
+        // arrange
+        Matcher matcher = RegexDemo.getCommentMatcherFor("class");
+
+        // act
+        boolean groupFound = matcher.find();
+
+        // assert
+        assertFalse(groupFound);
     }
 }
