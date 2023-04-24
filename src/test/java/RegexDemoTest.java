@@ -1,8 +1,6 @@
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import java.util.regex.Matcher;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
@@ -13,10 +11,10 @@ class RegexDemoTest {
     @Test
     void itShouldMatchAnEmptyComment() {
         // arrange
-        Matcher matcher = RegexDemo.getCommentMatcherFor("/**/");
+        var matcher = RegexDemo.getCommentMatcherFor("/**/");
 
         // act
-        boolean groupFound = matcher.find();
+        var groupFound = matcher.find();
 
         // assert
         assertTrue(groupFound);
@@ -25,10 +23,10 @@ class RegexDemoTest {
     @Test
     void itShouldNotMatchSomeOtherStringWithoutComment() {
         // arrange
-        Matcher matcher = RegexDemo.getCommentMatcherFor("class");
+        var matcher = RegexDemo.getCommentMatcherFor("class");
 
         // act
-        boolean groupFound = matcher.find();
+        var groupFound = matcher.find();
 
         // assert
         assertFalse(groupFound);
@@ -38,10 +36,10 @@ class RegexDemoTest {
     @DisplayName("it should match a comment with a one character content 'a'")
     void itShouldMatchACommentWithAOneCharacterContentA() {
         // arrange
-        Matcher matcher = RegexDemo.getCommentMatcherFor("/*a*/");
+        var matcher = RegexDemo.getCommentMatcherFor("/*a*/");
 
         // act
-        boolean groupFound = matcher.find();
+        var groupFound = matcher.find();
 
         // assert
         assertTrue(groupFound);
@@ -50,10 +48,10 @@ class RegexDemoTest {
     @Test
     void itShouldMatchOtherCharacterContentsThanA() {
         // arrange
-        Matcher matcher = RegexDemo.getCommentMatcherFor("/*b*/");
+        var matcher = RegexDemo.getCommentMatcherFor("/*b*/");
 
         // act
-        boolean groupFound = matcher.find();
+        var groupFound = matcher.find();
 
         // assert
         assertTrue(groupFound);
@@ -62,7 +60,7 @@ class RegexDemoTest {
     @Test
     void itShouldMatchMoreThanOneCharacterContent() {
         // arrange
-        Matcher matcher = RegexDemo.getCommentMatcherFor("/*Some*/");
+        var matcher = RegexDemo.getCommentMatcherFor("/*Some*/");
 
         // act and assert
         assertTrue(matcher.find());
@@ -71,7 +69,7 @@ class RegexDemoTest {
     @Test
     void itShouldMatchWhitespaceCharacterContent() {
         // arrange
-        Matcher matcher = RegexDemo.getCommentMatcherFor("/* Some Text here */");
+        var matcher = RegexDemo.getCommentMatcherFor("/* Some Text here */");
 
         // act and assert
         assertTrue(matcher.find());
@@ -80,7 +78,7 @@ class RegexDemoTest {
     @Test
     void itShouldMatchACommentWithAnAsterisk() {
         // arrange
-        Matcher matcher = RegexDemo.getCommentMatcherFor("/* Some * Comment */");
+        var matcher = RegexDemo.getCommentMatcherFor("/* Some * Comment */");
 
         // act and assert
         assertTrue(matcher.find());
