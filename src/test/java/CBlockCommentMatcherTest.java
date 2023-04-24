@@ -9,11 +9,11 @@ import static org.junit.jupiter.api.Assertions.*;
  * Copyright 2020 by Bajupa.com
  * Created by peter on 24.05.20.
  */
-class RegexDemoTest {
+class CBlockCommentMatcherTest {
     @Test
     void itShouldMatchAnEmptyComment() {
         // arrange
-        Matcher matcher = RegexDemo.getCommentMatcherFor("/**/");
+        Matcher matcher = CBlockCommentMatcher.getCommentMatcherFor("/**/");
 
         // act
         boolean groupFound = matcher.find();
@@ -25,7 +25,7 @@ class RegexDemoTest {
     @Test
     void itShouldNotMatchSomeOtherStringWithoutComment() {
         // arrange
-        Matcher matcher = RegexDemo.getCommentMatcherFor("class");
+        Matcher matcher = CBlockCommentMatcher.getCommentMatcherFor("class");
 
         // act
         boolean groupFound = matcher.find();
@@ -38,7 +38,7 @@ class RegexDemoTest {
     @DisplayName("it should match a comment with a one character content 'a'")
     void itShouldMatchACommentWithAOneCharacterContentA() {
         // arrange
-        Matcher matcher = RegexDemo.getCommentMatcherFor("/*a*/");
+        Matcher matcher = CBlockCommentMatcher.getCommentMatcherFor("/*a*/");
 
         // act
         boolean groupFound = matcher.find();
@@ -50,7 +50,7 @@ class RegexDemoTest {
     @Test
     void itShouldMatchOtherCharacterContentsThanA() {
         // arrange
-        Matcher matcher = RegexDemo.getCommentMatcherFor("/*b*/");
+        Matcher matcher = CBlockCommentMatcher.getCommentMatcherFor("/*b*/");
 
         // act
         boolean groupFound = matcher.find();
@@ -62,7 +62,7 @@ class RegexDemoTest {
     @Test
     void itShouldMatchMoreThanOneCharacterContent() {
         // arrange
-        Matcher matcher = RegexDemo.getCommentMatcherFor("/*Some*/");
+        Matcher matcher = CBlockCommentMatcher.getCommentMatcherFor("/*Some*/");
 
         // act and assert
         assertTrue(matcher.find());
@@ -71,7 +71,7 @@ class RegexDemoTest {
     @Test
     void itShouldMatchWhitespaceCharacterContent() {
         // arrange
-        Matcher matcher = RegexDemo.getCommentMatcherFor("/* Some Text here */");
+        Matcher matcher = CBlockCommentMatcher.getCommentMatcherFor("/* Some Text here */");
 
         // act and assert
         assertTrue(matcher.find());
@@ -80,7 +80,7 @@ class RegexDemoTest {
     @Test
     void itShouldMatchACommentWithAnAsterisk() {
         // arrange
-        Matcher matcher = RegexDemo.getCommentMatcherFor("/* Some * Comment */");
+        Matcher matcher = CBlockCommentMatcher.getCommentMatcherFor("/* Some * Comment */");
 
         // act and assert
         assertTrue(matcher.find());
@@ -89,7 +89,7 @@ class RegexDemoTest {
     @Test
     void itShouldMatchACommentWithASlash() {
         // arrange
-        Matcher matcher = RegexDemo.getCommentMatcherFor("/* Some / Comment */");
+        Matcher matcher = CBlockCommentMatcher.getCommentMatcherFor("/* Some / Comment */");
 
         // act and assert
         assertTrue(matcher.find());
